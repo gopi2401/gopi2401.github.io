@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-client_id"
-        content="889979320676-ngtm2gjqbjos5725o0e43o837uukuj3o.apps.googleusercontent.com">
+        content="889979320676-t4dqrlntu4gmfga9s3hoj0vlflpjfghf.apps.googleusercontent.com">
     <title>Google Sign-In Example</title>
 </head>
 
@@ -18,7 +18,8 @@
     <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <!-- Script to handle the sign-in callback -->
-    <button onclick="signOut()">Sign out</button>
+    <a href="#" onclick="signOut();">Sign out</a>
+    <!-- <button onclick="signOut()">Sign out</button> -->
     <script>
         function onSignIn(googleUser) {
             console.log(googleUser.getBasicProfile())
@@ -29,9 +30,10 @@
             console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         }
         function signOut() {
-            gapi.auth2.getAuthInstance().signOut().then(function () {
-                console.log('user signed out')
-            })
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
         }
     </script>
 
